@@ -1,0 +1,13 @@
+# The following files and directories should be ignored when packaging the extension for distribution
+.vscode
+node_modules
+*.log
+*.ts
+*.map
+*.test.js
+*.spec.js
+.DS_Store
+.vscode-test
+.vscodeignore
+README.md
+package.json
