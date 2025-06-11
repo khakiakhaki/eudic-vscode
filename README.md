@@ -1,20 +1,14 @@
 # Eudic VS Code Extension
 
-This extension adds a right-click context menu option called "Eudic" for selected text in Visual Studio Code. When selected, it sends the highlighted text to the Eudic application using a specified command line format.
+Use the local eudic for tranlate / lookup word
 
 ## Features
 
-- Right-click on selected text to see the "Eudic" option.
-- Sends the selected text to Eudic using the command: `$binpath -w $textselected`.
+- Right-click on selected text to see the "Send to Eudic" option.
+- Sends the selected text to Eudic application using the command: `$binpath -w $textselected`.
 - Configurable binary path for the Eudic application.
 - Displays an error message if the binary path does not exist.
-
-## Installation
-
-1. Clone the repository or download the source code.
-2. Open the project in Visual Studio Code.
-3. Run the command `npm install` to install any dependencies.
-4. Press `F5` to launch the extension in a new Extension Development Host window.
+- Auto activate the Eudic window in Windows.
 
 ## Usage
 

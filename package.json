@@ -2,11 +2,13 @@
   "name": "eudic-translate",
   "displayName": "Eudic Translate",
   "description": "Eudic Translate Integrated in VS Code.",
-  "version": "0.1.0",
+  "version": "0.1.3",
   "publisher": "khakiakhaki",
   "engines": {
     "vscode": "^1.60.0"
   },
+  "icon": "images/icon.webp",
+
   "categories": [
     "Other"
   ],
@@ -36,11 +38,11 @@
     "configuration": {
       "title": "Eudic",
       "properties": {
-        "eudic.binaryPath": {
+        "eudic.exePath": {
           "type": "string",
           "default": "",
           "description": "The full path to the Eudic executable (e.g., /Applications/Eudic.app/Contents/MacOS/Eudic or C:\\Program Files\\Eudic\\eudic.exe). This path is specific to your local machine.",
-          "scope": "machine"
+          "scope": "resource"
         }
       }
     }
