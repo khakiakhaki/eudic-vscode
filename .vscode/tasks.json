@@ -1,0 +1,19 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "vscode release",
+			"type": "shell",
+			"command": "vsce",
+			"cwd": "${workspaceFolder}",
+			"args":[
+				"package",
+				"--allow-missing-repository",
+			],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
+		}
+	]
+}

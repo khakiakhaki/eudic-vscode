@@ -2,7 +2,7 @@
   "name": "eudic-translate",
   "displayName": "Eudic Translate",
   "description": "Eudic Translate Integrated in VS Code.",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "publisher": "khakiakhaki",
   "engines": {
     "vscode": "^1.60.0"

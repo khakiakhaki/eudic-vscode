@@ -31,7 +31,7 @@ function activate(context) {
       }
 
       const config = vscode.workspace.getConfiguration("eudic");
-      const binPath = config.get("binaryPath");
+      const binPath = config.get("exePath");
 
       if (!fs.existsSync(binPath)) {
         vscode.window.showErrorMessage(
