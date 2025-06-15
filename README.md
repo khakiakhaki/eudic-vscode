@@ -27,9 +27,19 @@ To set the binary path for Eudic, add the following to your `settings.json`:
 
 Make sure to replace `/path/to/eudic` with the actual path to the Eudic binary on your system.
 
+** only test on win10 **
+
+
+## Thanks
+
+[mykeymap - a keymap tool](https://github.com/xianyukang/MyKeymap)
+
 ## Troubleshooting
 
 - If you encounter an error stating that the binary path does not exist, please verify that the path is correct and that the Eudic application is installed.
+
+
+
 
 ## License
 

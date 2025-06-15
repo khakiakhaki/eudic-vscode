@@ -57,19 +57,20 @@ function activate(context) {
           let activateCommand = "";
 
           // Get the executable name without extension (e.g., "eudic" from "eudic.exe")
-          const exeName = path.basename(binPath, path.extname(binPath));
+          const baseNameWithExt = path.basename(binPath);
+          // const exeName = path.basename(binPath, path.extname(binPath));
 
           if (platform === "win32") {
-            // Windows
-            // PowerShell command to find the process by name and activate its main window
-            // Using -NoProfile for faster startup, -NonInteractive to prevent prompts,
-            // -ExecutionPolicy Bypass to avoid issues with restricted policies.
-            // WScript.Shell AppActivate is used, targeting the process ID.
-            activateCommand = `powershell -NoProfile -NonInteractive -EP Bypass -Command "if(${lastPid}){if(Get-Process -Id ${lastPid} -EA 0){(New-Object -ComObject WScript.Shell).AppActivate(${lastPid})|Out-Null;}}else{$p=@(Get-Process -Name '${exeName}' -EA 0)[0];(New-Object -ComObject WScript.Shell).AppActivate($p.Id)|Out-Null;$p.Id}"`;
+            // Windows - Use PowerShell to find PID of eudic process and activate window
+            // Get absolute path to a directory relative to script path
+            const ahkbinPath = path.join(__dirname, 'lib', 'AutoHotkey64.exe');
+            const actWinPath = path.join(__dirname, 'lib', 'activateWindow.ahk');
+            activateCommand = ` "${ahkbinPath}" "${actWinPath}" "ahk_exe ${baseNameWithExt}" "${binPath}"`;
           } else if (platform === "darwin") {
             // macOS
             // Attempt to derive application name from binPath (e.g., "Eudic" from "/Applications/Eudic.app/...")
-            let appName = exeName; // Fallback to exeName
+            // no macos , no way to tes the code is right or not
+            let appName = exeName; 
             const appPathMatch = binPath.match(/([^\/]+)\.app\//);
             if (appPathMatch && appPathMatch[1]) {
               appName = appPathMatch[1];
@@ -80,12 +81,6 @@ function activate(context) {
             exec(
               activateCommand,
               (activateError, activateStdout, activateStderr) => {
-                if (platform === "win32") {
-                  const stdoutTrimmed = activateStdout.trim();
-                  if (stdoutTrimmed) {
-                    lastPid = parseInt(stdoutTrimmed, 10);
-                  }
-                }
                 if (activateError) {
                   // Log error to console, do not bother user with another message
                   console.error(
