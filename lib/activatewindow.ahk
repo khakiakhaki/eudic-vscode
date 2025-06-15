@@ -149,8 +149,8 @@ ActivateWindow(winTitle := "", isHide := false) {
     ; 指定不为活动窗口或窗口被缩小则显示出来
     if (WinExist("A") != hwnd || WinGetMinMax(hwnd) = -1) {
       WinActivate(hwnd)
-    } else {
-      WinMinimize(hwnd)
+    ; } else {
+    ;   WinMinimize(hwnd)
     }
   } else {
     ; 如果多个窗口则来回切换

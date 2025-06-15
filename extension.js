@@ -44,10 +44,10 @@ function activate(context) {
       const command = `"${binPath}" -w "${textToTranslate}"`;
       exec(command, (error, stdout, stderr) => {
         if (error) {
-          vscode.window.showErrorMessage(`Error executing command: ${stderr}`);
+          console.error(`Error executing command: ${stderr}`);
           return;
         }
-        vscode.window.showInformationMessage(
+        console.log(
           "Text sent to Eudic successfully."
         );
 
